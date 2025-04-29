@@ -24,6 +24,10 @@ type apiConfig struct {
 //go:embed static/*
 var staticFiles embed.FS
 
+func unused() {
+	// this function does nothing
+	// and is called nowhere
+}
 func main() {
 	err := godotenv.Load(".env")
 	if err != nil {
@@ -95,4 +99,6 @@ func main() {
 
 	log.Printf("Serving on port: %s\n", port)
 	log.Fatal(srv.ListenAndServe())
+	
+
 }
